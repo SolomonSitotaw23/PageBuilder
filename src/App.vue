@@ -1,13 +1,14 @@
 <script setup>
 import Header from "../src/components/header-and-footer/Header.vue";
 import Footer from "./components/header-and-footer/Footer.vue";
-
 </script>
 
 <template>
-<Header class="h-20" />
-<router-view></router-view>
-<Footer class="h-20 footer" />
+  <section>
+    <Header class="h-20" />
+    <router-view> </router-view>
+    <Footer class="h-20 footer" />
+  </section>
 </template>
 
 <style>
@@ -17,6 +18,6 @@ import Footer from "./components/header-and-footer/Footer.vue";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: #59DFFD;
+  background-color: #59dffd;
 }
 </style>
