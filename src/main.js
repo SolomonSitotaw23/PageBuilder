@@ -10,7 +10,7 @@ const cache = new InMemoryCache();
 
 const apolloClient = new ApolloClient({
   cache,
-  uri: "https://fakeql.com/graphql/8d5562a338af8978294c9a9c75648e83",
+  uri: "https://fakeql.com/graphql/1e543f1a9205240d6273bcc6d9b36ce9",
 });
 
 const app = createApp({

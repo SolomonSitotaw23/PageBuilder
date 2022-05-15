@@ -14,8 +14,9 @@ const buttonClasses = "border-2 border-black px-2 font-bold py-1 button btn";
       <router-link to="preview">
         <li><button :class="buttonClasses">Your projects</button></li>
       </router-link>
-
-      <li><button :class="buttonClasses">Create new website</button></li>
+      <router-link to="Layouts">
+        <li><button :class="buttonClasses">Create new website</button></li>
+      </router-link>
     </ul>
   </div>
 </template>

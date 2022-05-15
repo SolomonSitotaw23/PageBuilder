@@ -1,5 +1,4 @@
 <script setup>
-import { ArrowNarrowRightIcon } from "@vue-hero-icons/outline";
 const buttonClasses =
   "bg-black  px-2 font-bold getStartedButton button btn btn-three w-48 h-9 py-2 mt-10";
 

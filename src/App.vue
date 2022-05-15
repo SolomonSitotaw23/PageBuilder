@@ -4,9 +4,9 @@ import Footer from "./components/header-and-footer/Footer.vue";
 </script>
 
 <template>
-  <section>
+  <section class="flex flex-col min-h-screen">
     <Header class="h-20" />
-    <router-view> </router-view>
+    <router-view class="flex-grow"> </router-view>
     <Footer class="h-20 footer" />
   </section>
 </template>
