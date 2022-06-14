@@ -10,7 +10,7 @@ const cache = new InMemoryCache();
 
 const apolloClient = new ApolloClient({
   cache,
-  uri: "https://fakeql.com/graphql/1e543f1a9205240d6273bcc6d9b36ce9",
+  uri: "https://cmsgraphqlserver.herokuapp.com/graphql",
 });
 
 const app = createApp({

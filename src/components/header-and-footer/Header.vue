@@ -11,7 +11,7 @@ const buttonClasses = "border-2 border-black px-2 font-bold py-1 button btn";
       <router-link to="/" class="">
         <li><button :class="buttonClasses">Home</button></li>
       </router-link>
-      <router-link to="preview">
+      <router-link to="previewPages">
         <li><button :class="buttonClasses">Your projects</button></li>
       </router-link>
       <router-link to="Layouts">

@@ -1,6 +1,7 @@
 import HomePage from "../components/HomePage.vue";
 import PagesPreview from "../components/PagesPreview.vue";
-import Layouts from "../components/Layouts.vue"
+import Layouts from "../components/Layouts.vue";
+import page from "../components/page.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -11,12 +12,17 @@ const router = createRouter({
       component: HomePage,
     },
     {
-      path: "/preview",
+      path: "/previewPages",
       component: PagesPreview,
     },
     {
       path: "/Layouts",
       component: Layouts,
+    },
+    {
+      path: "/preview/:id",
+      name: "page",
+      component: page,
     },
   ],
 });

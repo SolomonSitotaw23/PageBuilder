@@ -1,5 +1,5 @@
 <script setup>
-const linkClasses ="px-2 hover:underline cursor-pointer"
+const linkClasses = "px-2 hover:underline cursor-pointer";
 </script>
 <template>
   <hr />
@@ -14,6 +14,4 @@ const linkClasses ="px-2 hover:underline cursor-pointer"
   </div>
 </template>
 
-<style>
-
-</style>
+<style></style>
