@@ -10,13 +10,13 @@
 hr {
   border-top: 2px solid black;
 }
-.btn {
+.btns {
   font-family: var(--main-font-family);
   font-weight: 600;
   transition: all 0.5s;
   position: relative;
 }
-.btn::before {
+.btns::before {
   content: "";
   position: absolute;
   top: 0;
@@ -29,11 +29,11 @@ hr {
   opacity: 0.3;
   transition: all 0.3s;
 }
-.btn:hover::before {
+.btns:hover::before {
   opacity: 0;
   transform: scale(0.5, 0.5);
 }
-.btn::after {
+.btns::after {
   content: "";
   position: absolute;
   top: 0;
@@ -46,7 +46,7 @@ hr {
   border: 1px solid black;
   transform: scale(1.2, 1.2);
 }
-.btn:hover::after {
+.btns:hover::after {
   opacity: 1;
   transform: scale(1, 1);
 }

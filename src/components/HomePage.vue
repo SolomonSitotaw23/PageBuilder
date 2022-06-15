@@ -5,14 +5,11 @@ const buttonClasses =
 defineProps({
   msg: String,
 });
-
 </script>
 
 <template>
-  <div class="h-4/5">
-    <div
-      class="w-full flex heroSection justify-between h-4/5 items-center px-20 py-14"
-    >
+  <div class="h-5/6">
+    <div class="w-full flex heroSection justify-between h-4/5 items-center px-20 py-14">
       <div class="flex flex-col items-start w-2/5 justify-between">
         <div class="text-9xl text-left">
           <div class="">

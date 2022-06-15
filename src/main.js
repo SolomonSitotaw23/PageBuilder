@@ -10,7 +10,11 @@ const cache = new InMemoryCache();
 
 const apolloClient = new ApolloClient({
   cache,
-  uri: "https://cmsgraphqlserver.herokuapp.com/graphql",
+  uri: "https://devoted-longhorn-65.hasura.app/v1/graphql",
+  headers: {
+    "x-hasura-admin-secret":
+      "4pgTZa4T4RhwDB61bqF1FXaLu6ucg1pEoynGDgXrkilLaG78Jn6Ey5ZCOm9QDaCy",
+  },
 });
 
 const app = createApp({

@@ -1,5 +1,5 @@
 <script setup>
-const buttonClasses = "border-2 border-black px-2 font-bold py-1 button btn";
+const buttonClasses = "border-2 border-black px-2 font-bold py-1 button btns";
 </script>
 <template>
   <hr />
