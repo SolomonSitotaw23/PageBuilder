@@ -24,6 +24,11 @@ const router = createRouter({
       name: "page",
       component: page,
     },
+    {
+      path: "/Layouts/:id",
+      name: "EditPage",
+      component: Layouts,
+    },
   ],
 });
 export default router;
