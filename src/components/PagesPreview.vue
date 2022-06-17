@@ -1,41 +1,30 @@
 <script setup>
 import gql from "graphql-tag";
 import { useQuery } from "@vue/apollo-composable";
+import { FETCH_PAGES } from "./graphql/Operations";
 
-// !importing data
-
-const PagesQuery = gql`
-  query MyQuery {
-    pages {
-      id
-      title
-      slug
-      image_url
-      published
-      content
-    }
-  }
-`;
-
-const { result, loading, error } = useQuery(PagesQuery);
+const { result, loading, error, refetch } = useQuery(FETCH_PAGES);
 </script>
 
 <template>
-  <div>
-    <div>
-      <!-- ________________ -->
-      <p v-if="error">Something went wrong...</p>
+  <div class="all-pages">
+    <p v-if="error">Something went wrong...</p>
+    <!-- loading -->
+    <div
+      v-if="loading"
+      class="flex text-center justify-center items-center w-screen delay-100 loading"
+    >
+      <img src="../assets/loadingAnimation.svg" />
+    </div>
 
-      <div
-        v-if="loading"
-        class="flex text-center justify-center items-center w-screen delay-100 loading"
-      >
-        <img src="../assets/loadingAnimation.svg" />
-      </div>
-      <div v-else>
+    <!-- checking if there are pages -->
+
+    <div v-else class="py-16">
+      <div class="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
+        <!-- empty -->
         <div
           v-if="result.pages.length == 0"
-          class="flex flex-col text-center justify-center items-center w-screen delay-100 loading"
+          class="flex flex-col text-center justify-center items-center no-pages-found delay-100 loading"
         >
           <img src="../assets/NoData.svg" class="w-1/2 h-1/2" alt="" />
           <router-link to="Layouts">
@@ -46,82 +35,56 @@ const { result, loading, error } = useQuery(PagesQuery);
             </button>
           </router-link>
         </div>
-        <!-- Result -->
-        <div
-          v-else
-          v-for="page in result.pages"
-          :key="page.id"
-          class="grid grid-cols-3 gap-8 p-12 page-preview"
-        >
-          <!-- content wrapper -->
 
+        <div v-else class="grid gap-12 lg:grid-cols-3">
           <div
-            class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+            v-for="page in result.pages"
+            :key="page.id"
+            class="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl"
           >
-            <div class="flex flex-wrap justify-center">
-              <div class="w-full sm:w-full px-4">
-                <img
-                  :src="page.image_url"
-                  class="shadow rounded w-full h-44 align-middle border-none"
-                />
+            <img
+              :src="page.image_url"
+              alt="art cover"
+              loading="lazy"
+              width="1000"
+              height="667"
+              class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl"
+            />
+            <div class="sm:w-7/12 pl-0 p-5">
+              <div class="space-y-2">
+                <div class="space-y-4">
+                  <h4 class="text-2xl font-semibold text-cyan-900">
+                    {{ page.title }}
+                  </h4>
+                  <p
+                    class="text-gray-600 text-ellipsis"
+                    style="overflow: hidden; text-overflow: ellipsis; max-width: 83ch"
+                  >
+                    {{ page.content }}
+                  </p>
+                </div>
+                <router-link
+                  :to="{
+                    name: 'page',
+                    params: {
+                      id: page.id,
+                    },
+                  }"
+                  class="block w-max text-cyan-600"
+                  >Preview</router-link
+                >
               </div>
             </div>
-
-            <div class="p-5">
-              <a href="#">
-                <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900 capitalize dark:text-white"
-                >
-                  {{ page.slug }}
-                </h5>
-              </a>
-              <p
-                class="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                style="
-                  white-space: nowrap;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                  max-width: 83ch;
-                "
-              >
-                {{ page.content }}
-              </p>
-
-              <!-- router -->
-              <router-link
-                :to="{
-                  name: 'page',
-                  params: {
-                    id: page.id,
-                    title: page.title,
-                    image_url: page.image_url,
-                    content: page.content,
-                  },
-                }"
-                class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                Preview
-                <svg
-                  class="ml-2 -mr-1 w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </router-link>
-              <!-- router end -->
-            </div>
           </div>
-          <!-- content end -->
         </div>
       </div>
-      <!-- Result end -->
     </div>
+
+    <!--  -->
+
+    <!-- Result -->
+
+    <!-- Result end -->
   </div>
 </template>
 <style>
@@ -130,5 +93,13 @@ const { result, loading, error } = useQuery(PagesQuery);
 }
 .loading {
   height: 70vh;
+}
+.no-pages-found {
+  height: 65vh;
+}
+
+.all-pages {
+  min-height: 83vh;
+  overflow-y: auto;
 }
 </style>

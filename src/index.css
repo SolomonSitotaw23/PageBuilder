@@ -6,6 +6,7 @@
 :root {
   --decor-font-family: "League Gothic", sans-serif;
   --main-font-family: "League Spartan", sans-serif;
+  --main-color: "#59dffd";
 }
 hr {
   border-top: 2px solid black;

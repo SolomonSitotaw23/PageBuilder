@@ -2,6 +2,7 @@ import HomePage from "../components/HomePage.vue";
 import PagesPreview from "../components/PagesPreview.vue";
 import Layouts from "../components/Layouts.vue";
 import page from "../components/page.vue";
+import EditPage from "../components/EditPage.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -13,6 +14,7 @@ const router = createRouter({
     },
     {
       path: "/previewPages",
+      name: "PreviewAllPages",
       component: PagesPreview,
     },
     {
@@ -25,9 +27,9 @@ const router = createRouter({
       component: page,
     },
     {
-      path: "/Layouts/:id",
+      path: "/EditPage/:id",
       name: "EditPage",
-      component: Layouts,
+      component: EditPage,
     },
   ],
 });

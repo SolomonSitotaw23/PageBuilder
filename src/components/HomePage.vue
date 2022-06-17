@@ -8,38 +8,37 @@ defineProps({
 </script>
 
 <template>
-  <div class="h-5/6">
-    <div class="w-full flex heroSection justify-between h-4/5 items-center px-20 py-14">
-      <div class="flex flex-col items-start w-2/5 justify-between">
-        <div class="text-9xl text-left">
-          <div class="">
-            <span
-              >Build
-              <img src="../assets/drag.svg" alt="" class="w-20 inline" />
-              your</span
-            >
-            <span> website by drag and </span>
-            <img src="../assets/drop.svg" alt="" class="inline w-20" />
-            <span> dropping </span><v-icon name="flag"></v-icon>
-          </div>
+  <div class="home-page w-full flex heroSection justify-between items-center px-20 py-14">
+    <div class="flex flex-col items-start w-2/5 justify-between">
+      <div class="text-9xl text-left">
+        <div class="">
+          <span
+            >Build
+            <img src="../assets/drag.svg" alt="" class="w-20 inline" />
+            your</span
+          >
+          <span> website </span>
+          <img src="../assets/drop.svg" alt="" class="inline w-20" />
         </div>
+      </div>
 
-        <button :class="buttonClasses" class="">Get Started</button>
-      </div>
-      <div class="w-1/2">
-        <img src="../assets/Hero Image.svg" alt="" />
-      </div>
+      <button :class="buttonClasses" class="">Get Started</button>
+    </div>
+    <div class="w-1/2">
+      <img src="../assets/Hero Image.svg" alt="" />
     </div>
   </div>
 </template>
 
 <style>
 .heroSection {
-  height: 70%;
-  background-color: #59dffd;
+  background-color: var(--main-color);
   font-family: var(--decor-font-family);
 }
 .getStartedButton {
   color: #59dffd;
+}
+.home-page {
+  height: 83vh;
 }
 </style>

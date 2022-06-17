@@ -4,10 +4,10 @@ import Footer from "./components/header-and-footer/Footer.vue";
 </script>
 
 <template>
-  <section class="flex flex-col justify-between h-screen">
-    <Header class="h-20" />
-    <router-view class="flex-grow"> </router-view>
-    <Footer class="h-20 footer" />
+  <section>
+    <Header />
+    <router-view> </router-view>
+    <Footer />
   </section>
 </template>
 
@@ -19,5 +19,8 @@ import Footer from "./components/header-and-footer/Footer.vue";
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-color: #59dffd;
+}
+.view {
+  background-color: var(--main-color);
 }
 </style>
