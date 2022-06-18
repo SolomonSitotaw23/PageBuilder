@@ -8,19 +8,37 @@ const buttonClasses = "border-2 border-black px-2 font-bold py-1 button btns";
       <div>
         <img class="w-8" src="../../assets/logo.png" alt="" />
       </div>
-      <ul class="flex w-1/4 justify-between">
+      <ul class="">
         <router-link to="/" class="">
-          <li><button :class="buttonClasses">Home</button></li>
+          <a href="#_" class="relative px-6 py-3 mx-4 mt-2 font-bold text-black group">
+            <span
+              class="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-slate-200 group-hover:translate-x-0 group-hover:translate-y-0"
+            ></span>
+            <span class="absolute inset-0 w-full h-full border-4 border-black"></span>
+            <span class="relative">Home</span>
+          </a>
         </router-link>
         <router-link
           :to="{
             name: 'PreviewAllPages',
           }"
         >
-          <li><button :class="buttonClasses">Your projects</button></li>
+          <a href="#_" class="relative px-6 mx-4 py-3 font-bold text-black group">
+            <span
+              class="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-slate-200 group-hover:translate-x-0 group-hover:translate-y-0"
+            ></span>
+            <span class="absolute inset-0 w-full h-full border-4 border-black"></span>
+            <span class="relative">Your Projects</span>
+          </a>
         </router-link>
         <router-link to="Layouts">
-          <li><button :class="buttonClasses">Create new website</button></li>
+          <button class="relative px-6 py-3 font-bold text-black group">
+            <span
+              class="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-slate-200 group-hover:translate-x-0 group-hover:translate-y-0"
+            ></span>
+            <span class="absolute inset-0 w-full h-full border-4 border-black"></span>
+            <span class="relative">Create Project</span>
+          </button>
         </router-link>
       </ul>
     </div>

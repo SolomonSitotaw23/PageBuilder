@@ -42,6 +42,8 @@ const { mutate: deletePage } = useMutation(DELETE_PAGE_BY_ID, () => ({
             title: result.pages_by_pk.title,
             image_url: result.pages_by_pk.image_url,
             content: result.pages_by_pk.content,
+            content_2: result.pages_by_pk.content_2,
+            image_url_2: result.pages_by_pk.image_url_2,
           },
         }"
         class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 mx-4 mr-2 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -61,25 +63,34 @@ const { mutate: deletePage } = useMutation(DELETE_PAGE_BY_ID, () => ({
         </svg>
       </router-link>
     </div>
-    <div class="flex justify-center items-center">
-      <div class="flex flex-col justify-center w-3/4 items-center">
-        <div
-          class="border-solid border-2 border-black m-2 w-5/6 h-full bg-slate-200 rounded-lg"
-        >
-          <h1 class="text-3xl capitalize">{{ result.pages_by_pk.title }}</h1>
-          <div class="flex w-full">
-            <img
-              class="rounded-t-lg w-1/2 m-6"
-              :src="result.pages_by_pk.image_url"
-              alt=""
-            />
-            <p class="w-1/2 p-8">{{ result.pages_by_pk.content }}</p>
+
+    <div class="bg-slate-200 preview-page m-3 mb-8 p-11">
+      <h1 class="text-3xl font-semibold capitalize">
+        {{ result.pages_by_pk.title }}
+      </h1>
+      <div>
+        <div class="flex">
+          <div>
+            <img class="rounded-t-lg mt-8" :src="result.pages_by_pk.image_url" alt="" />
+          </div>
+          <div>
+            <p class="p-8 text-left">{{ result.pages_by_pk.content }}</p>
+          </div>
+        </div>
+        <div class="flex">
+          <div>
+            <p class="p-8 text-justify">{{ result.pages_by_pk.content_2 }}</p>
+          </div>
+          <div>
+            <img class="rounded-t-lg mt-8" :src="result.pages_by_pk.image_url_2" alt="" />
           </div>
         </div>
       </div>
+      <div class="w-full bg-slate-300 text-xs bottom-0">
+        &copy; {{ new Date().toLocaleString() }}
+      </div>
     </div>
   </div>
-
   <PopUp
     v-show="showModal"
     @close-modal="showModal = false"
@@ -89,5 +100,8 @@ const { mutate: deletePage } = useMutation(DELETE_PAGE_BY_ID, () => ({
 <style>
 .single-page {
   min-height: 83vh;
+}
+.page-preview {
+  width: 50vw;
 }
 </style>

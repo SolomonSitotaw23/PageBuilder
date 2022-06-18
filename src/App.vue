@@ -4,7 +4,7 @@ import Footer from "./components/header-and-footer/Footer.vue";
 </script>
 
 <template>
-  <section>
+  <section class=".view">
     <Header />
     <router-view> </router-view>
     <Footer />
@@ -21,6 +21,5 @@ import Footer from "./components/header-and-footer/Footer.vue";
   background-color: #59dffd;
 }
 .view {
-  background-color: var(--main-color);
 }
 </style>

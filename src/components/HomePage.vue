@@ -21,8 +21,9 @@ defineProps({
           <img src="../assets/drop.svg" alt="" class="inline w-20" />
         </div>
       </div>
-
-      <button :class="buttonClasses" class="">Get Started</button>
+      <router-link to="Layouts"
+        ><button :class="buttonClasses" class="">Get Started</button></router-link
+      >
     </div>
     <div class="w-1/2">
       <img src="../assets/Hero Image.svg" alt="" />
